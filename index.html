@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>I'm Sorry 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe3ef;--bg2:#ffc2dc;--card:#fff;--ink:#5a2a3f;--pink:#ff5c9a;--red:#e8284f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a1428;--bg2:#5e1f3f;--card:#fff3f8;--ink:#5a2a3f}}
+:root[data-theme="dark"]{--bg1:#3a1428;--bg2:#5e1f3f;--card:#fff3f8;--ink:#5a2a3f}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:'Fredoka',system-ui,sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);overflow-y:auto;overflow-x:hidden;display:flex;align-items:safe center;justify-content:center}
+.fall{position:fixed;top:-40px;font-size:24px;pointer-events:none;animation:fall linear infinite;opacity:.85}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.stage{position:relative;padding:14px 0;width:min(92vw,400px);text-align:center;z-index:2}
+.hidden{display:none!important}
+svg.cat{width:200px;max-width:60vw;overflow:visible}
+.float{animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.tear{animation:tear 2.2s ease-in infinite}
+@keyframes tear{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(40px);opacity:0}}
+.bow{transform-box:fill-box;transform-origin:center;animation:wig 2.5s ease-in-out infinite}
+@keyframes wig{50%{transform:rotate(8deg) scale(1.06)}}
+/* envelope */
+.env{position:relative;width:260px;height:170px;margin:30px auto 10px;cursor:pointer;animation:float 2.6s ease-in-out infinite}
+.env .body{position:absolute;inset:0;background:#ff8fb8;border-radius:12px;box-shadow:0 12px 30px rgba(232,40,79,.3)}
+.env .flap{position:absolute;left:0;top:0;width:100%;height:100px;background:#ff6fa3;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s;border-radius:12px 12px 0 0}
+.env .seal{position:absolute;left:50%;top:78px;transform:translateX(-50%);font-size:34px;z-index:3;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:translateX(-50%) scale(1.25)}}
+.env.open .flap{transform:rotateX(180deg)}
+.env.open .seal{display:none}
+.tap{font-size:20px;margin-top:6px;animation:beat2 1.6s infinite}
+@keyframes beat2{50%{opacity:.4}}
+h1{font-size:38px;margin:4px 0 0;color:var(--red)}
+.card{background:var(--card);border-radius:28px;padding:22px 20px 26px;box-shadow:0 18px 50px rgba(232,40,79,.35);border:4px dashed #ff9fc3;animation:pop .8s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.2) rotate(-12deg);opacity:0}}
+#msg{font-size:16px;line-height:1.5;min-height:320px;margin:6px 0 14px;text-align:left}
+.btns{position:relative;height:64px;display:flex;gap:14px;justify-content:center;align-items:center}
+button{font:600 18px 'Fredoka',sans-serif;border:0;border-radius:999px;padding:13px 26px;cursor:pointer;transition:transform .15s}
+#yes{background:linear-gradient(135deg,#ff5c9a,#e8284f);color:#fff;box-shadow:0 6px 16px rgba(232,40,79,.5);animation:beat2b 1.5s infinite}
+@keyframes beat2b{50%{transform:scale(1.08)}}
+#no{background:#ffe0ec;color:var(--ink);position:relative}
+.burst{position:fixed;font-size:26px;pointer-events:none;z-index:9;animation:burst 1.8s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+.rise{position:fixed;pointer-events:none;z-index:9;animation:rise 2.4s ease-out forwards}
+@keyframes rise{0%{transform:translateY(0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translateY(-130px) translateX(var(--dx)) scale(1.2);opacity:0}}
+.glow{animation:glow 1.4s ease-in-out infinite!important}
+@keyframes glow{50%{transform:scale(1.08) rotate(-3deg)}}
+
+.btns.done{height:auto;min-height:150px}
+.fl{width:130px;overflow:visible}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 3s ease-in-out 2.6s infinite}
+@keyframes sway{50%{transform:rotate(5deg)}}
+.stem{stroke-dasharray:90;stroke-dashoffset:90;animation:grow 1.2s ease-out forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.leaf{transform-box:fill-box;transform-origin:0 100%;transform:scale(0);animation:grow2 .6s ease-out 1s forwards}
+.leaf.r{transform-origin:100% 100%;animation-delay:1.2s}
+@keyframes grow2{to{transform:scale(1)}}
+.pt{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);animation:bloom .7s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes bloom{to{transform:scale(1)}}
+.core{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom .6s ease-out 2.2s forwards}
+.dust{animation:beat2 1.4s 3s infinite}
+.cursor::after{content:"▌";animation:beat2 .8s infinite}
+</style></head>
+<body>
+<div class="stage" id="s1">
+  <svg class="cat float" viewBox="0 0 200 150"><use href="#catface"/></svg>
+  <h1>Psst… a little note for you</h1>
+  <div class="env" id="env"><div class="body"></div><div class="flap"></div><div class="seal">💌</div></div>
+  <div class="tap">tap the envelope 💗</div>
+</div>
+
+<div class="stage hidden" id="s2">
+  <div class="card">
+    <svg class="cat float" viewBox="0 0 200 150" id="cat2"><use href="#catface"/></svg>
+    <h1 id="title">My bad 🎀</h1>
+    <div id="msg" class="cursor"></div>
+    <div class="btns" id="btns">
+      <button id="yes">Okay, I forgive you 💕</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- original kawaii kitty-style cat with a bow -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<g id="catface">
+  <path d="M28 52 L24 10 L68 34 Z" fill="#fff" stroke="#5a2a3f" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M172 52 L176 10 L132 34 Z" fill="#fff" stroke="#5a2a3f" stroke-width="4" stroke-linejoin="round"/>
+  <ellipse cx="100" cy="88" rx="82" ry="58" fill="#fff" stroke="#5a2a3f" stroke-width="4"/>
+  <g class="bow">
+    <path d="M150 28 L186 10 L186 46 Z" fill="#ff5c9a" stroke="#5a2a3f" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M150 28 L118 8 L118 48 Z" fill="#ff5c9a" stroke="#5a2a3f" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="150" cy="28" r="9" fill="#e8284f" stroke="#5a2a3f" stroke-width="3"/>
+  </g>
+  <ellipse class="eye" cx="64" cy="92" rx="6" ry="8" fill="#3a1a28"/>
+  <ellipse class="eye" cx="136" cy="92" rx="6" ry="8" fill="#3a1a28"/>
+  <ellipse cx="46" cy="108" rx="11" ry="6" fill="#ff9fc3" opacity=".6"/>
+  <ellipse cx="154" cy="108" rx="11" ry="6" fill="#ff9fc3" opacity=".6"/>
+  <ellipse cx="100" cy="104" rx="8" ry="5.5" fill="#ffd23f" stroke="#5a2a3f" stroke-width="2.5"/>
+  <path class="mouth" d="M88 122 Q100 112 112 122" fill="none" stroke="#5a2a3f" stroke-width="3" stroke-linecap="round"/>
+  <g stroke="#5a2a3f" stroke-width="3" stroke-linecap="round">
+    <line x1="10" y1="92" x2="36" y2="96"/><line x1="8" y1="108" x2="34" y2="106"/>
+    <line x1="190" y1="92" x2="164" y2="96"/><line x1="192" y1="108" x2="166" y2="106"/>
+  </g>
+  <path class="tear" d="M64 102 q-6 10 0 14 q6 -4 0 -14z" fill="#7fd3ff"/>
+</g></defs></svg>
+
+<script>
+const NAME = "hey"; // ← change to her name!
+const TEXT = `Hiii, my pretty princess 🎀\n\nI’m sorry if I made things feel a little weird, sweetheart. I only showed you my old writing because I wanted you to see the real me, the good and the bad, and feel comfortable getting to know me. I never want you to feel upset or uncomfortable because of me. Your feelings matter to me, and I want you to feel safe, cared for, and appreciated with me. ❤️\n\nAnd babyyy, you have no idea how dangerously cute you are because that pretty smile of yours is slowly becoming my favorite thing ever.\n\nCan I have one little smile, princess? Maybe a tiny kiss too, if you’re feeling generous. 💕`;
+// falling hearts & bows
+const icons=["💗","🎀","💕","🌸","💖","✨"];
+for(let i=0;i<22;i++){const e=document.createElement("div");e.className="fall";e.textContent=icons[i%icons.length];
+e.style.left=Math.random()*100+"vw";e.style.fontSize=(16+Math.random()*22)+"px";
+e.style.animationDuration=(6+Math.random()*7)+"s";e.style.animationDelay=(-Math.random()*10)+"s";document.body.appendChild(e);}
+const $=id=>document.getElementById(id);
+function burst(x,y,n=26){for(let i=0;i<n;i++){const b=document.createElement("div");b.className="burst";b.textContent=icons[i%icons.length];
+b.style.left=x+"px";b.style.top=y+"px";const a=Math.random()*6.28,d=100+Math.random()*220;
+b.style.setProperty("--x",Math.cos(a)*d+"px");b.style.setProperty("--y",Math.sin(a)*d+"px");b.style.setProperty("--r",(Math.random()*720-360)+"deg");
+document.body.appendChild(b);setTimeout(()=>b.remove(),1900);}}
+$("env").onclick=e=>{
+  $("env").classList.add("open");burst(e.clientX,e.clientY,14);
+  setTimeout(()=>{$("s1").classList.add("hidden");$("s2").classList.remove("hidden");type();},900);
+};
+function type(){const m=$("msg");let i=0;(function t(){m.textContent=TEXT.slice(0,i++);m.style.whiteSpace="pre-wrap";
+  if(i<=TEXT.length)setTimeout(t,24);else m.classList.remove("cursor");})();}
+// the "No" button runs away
+const no=$("no");
+function flee(){const dx=(Math.random()-.5)*220,dy=(Math.random()-.5)*160;no.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/6}deg)`;
+ const labels=["Are you sure? 🥺","Pleeease 💔","Nope 😿","Try again 💗"];no.textContent=labels[Math.floor(Math.random()*labels.length)];}
+no.addEventListener("mouseenter",flee);no.addEventListener("touchstart",e=>{e.preventDefault();flee();},{passive:false});no.addEventListener("click",flee);
+$("yes").onclick=e=>{
+  const r=$("yes").getBoundingClientRect();burst(r.left+r.width/2,r.top,40);
+  setTimeout(()=>burst(innerWidth/2,innerHeight/2,50),300);
+  $("title").textContent="Yay! 🎉💕";
+  $("msg").textContent="Yay, there's my princess 🥰💖\nThat smile just made my whole day. 🎀";
+  $("btns").classList.add("done");$("btns").innerHTML='<svg class="fl" viewBox="0 0 120 150"><g class="sway"><path class="stem" d="M60 148 C60 120 58 95 60 62" fill="none" stroke="#4caf6a" stroke-width="5" stroke-linecap="round"/><ellipse class="leaf" cx="38" cy="112" rx="20" ry="9" fill="#6fcf8a" transform="rotate(-25 38 112)"/><ellipse class="leaf r" cx="82" cy="100" rx="20" ry="9" fill="#6fcf8a" transform="rotate(25 82 100)"/><g transform="rotate(0 60 52)"><ellipse class="pt" style="animation-delay:1.50s" cx="60" cy="33" rx="11" ry="19" fill="#ff9fc3" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(45 60 52)"><ellipse class="pt" style="animation-delay:1.59s" cx="60" cy="33" rx="11" ry="19" fill="#ff7aa5" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(90 60 52)"><ellipse class="pt" style="animation-delay:1.68s" cx="60" cy="33" rx="11" ry="19" fill="#ff9fc3" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(135 60 52)"><ellipse class="pt" style="animation-delay:1.77s" cx="60" cy="33" rx="11" ry="19" fill="#ff7aa5" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(180 60 52)"><ellipse class="pt" style="animation-delay:1.86s" cx="60" cy="33" rx="11" ry="19" fill="#ff9fc3" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(225 60 52)"><ellipse class="pt" style="animation-delay:1.95s" cx="60" cy="33" rx="11" ry="19" fill="#ff7aa5" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(270 60 52)"><ellipse class="pt" style="animation-delay:2.04s" cx="60" cy="33" rx="11" ry="19" fill="#ff9fc3" stroke="#e8284f" stroke-width="1.5"/></g><g transform="rotate(315 60 52)"><ellipse class="pt" style="animation-delay:2.13s" cx="60" cy="33" rx="11" ry="19" fill="#ff7aa5" stroke="#e8284f" stroke-width="1.5"/></g><circle class="core" cx="60" cy="52" r="11" fill="#ffd23f" stroke="#e8a800" stroke-width="2"/></g><text class="dust" x="14" y="40" font-size="14">✨</text><text class="dust" x="98" y="30" font-size="14" style="animation-delay:.5s">✨</text></svg>';
+  const c=$("cat2");c.classList.add("glow");
+  c.insertAdjacentHTML("beforeend",'<rect x="80" y="113" width="40" height="20" fill="#fff"/><path d="M84 116 Q100 140 116 116 Z" fill="#ff7aa5" stroke="#5a2a3f" stroke-width="3" stroke-linejoin="round"/>');
+  setInterval(()=>{const r=c.getBoundingClientRect();const h=document.createElement("div");h.className="rise";h.textContent=["💗","💖","💕","🎀"][Math.floor(Math.random()*4)];
+    h.style.left=(r.left+Math.random()*r.width)+"px";h.style.top=(r.top+r.height*.4)+"px";h.style.fontSize=(18+Math.random()*16)+"px";h.style.setProperty("--dx",(Math.random()*80-40)+"px");
+    document.body.appendChild(h);setTimeout(()=>h.remove(),2500);},220);document.querySelectorAll(".tear").forEach(t=>t.style.display="none");
+  setInterval(()=>burst(Math.random()*innerWidth,innerHeight*.9,8),1200);
+};
+</script>
+</body></html>
